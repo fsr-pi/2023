@@ -3,18 +3,29 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Logging
 {
+  public class A {
+    public A() {
+      Console.WriteLine("Kreiram A");
+    }
+  }
+  public class B
+  {
+    public B(A a) {
+      Console.WriteLine("Kreiram B");
+    }
+  }
+
   public class DataLoader : IDataLoader
   {
     private readonly ILogger<DataLoader> logger;
 
-    public DataLoader(ILogger<DataLoader> logger)
+    public DataLoader(ILogger<DataLoader> logger, A a, B b)
     {
+      Console.WriteLine("Kreiram DataLoader");
       this.logger = logger;
     }
 

@@ -9,6 +9,14 @@ c["Ana"] = 5;
 c["Ivan"] = 5;
 c["Marko"] = 1;
 c["Luka"] = 3;
-//p["Marija"] = -7; //should throw an exception
-Console.WriteLine("Average grade: " + c.AverageGrade());
-Console.WriteLine("Šime ima ocjenu: " + c["Šime"]); //prints -1
+try
+{
+  c["Marija"] = -7; //should throw an exception
+  Console.WriteLine("Average grade: " + c.AverageGrade());
+  Console.WriteLine("Šime ima ocjenu: " + c["Šime"]); //prints -1
+}
+catch (Exception exc)
+{
+  Console.WriteLine("Uhvatio iznimku " + exc.Message);
+}
+Console.WriteLine("OK");

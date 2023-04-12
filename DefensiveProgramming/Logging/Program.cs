@@ -15,17 +15,21 @@ namespace Logging
     {
       using (var serviceProvider = BuildDI())
       {
-        var dataLoader = serviceProvider.GetRequiredService<IDataLoader>();
-        var list = dataLoader.LoadData("data.txt");
-        var sortQuery = list.OrderByDescending(t => t.Item2)
-                            .ThenBy(t => t.Item1);
-
-        Console.WriteLine("Valid data: ");
-        foreach (var item in sortQuery)
+        using (var scope = serviceProvider.CreateScope())
         {
-          Console.WriteLine($"{item.Item2:yyyy-MM-dd} {item.Item1}");
+          var provider = scope.ServiceProvider; 
+          IDataLoader dataLoader = provider.GetRequiredService<IDataLoader>();
+          dataLoader = provider.GetRequiredService<IDataLoader>();
         }
-      }        
+        Console.WriteLine("----");
+        using (var scope = serviceProvider.CreateScope())
+        {
+          var provider = scope.ServiceProvider;
+          IDataLoader dataLoader = provider.GetRequiredService<IDataLoader>();
+        }
+      }
+      
+     
     }
 
     private static ServiceProvider BuildDI()
@@ -41,6 +45,8 @@ namespace Logging
                                   configure.AddNLog(new NLogProviderOptions { RemoveLoggerFactoryFilter = false });
                               })
                              .AddTransient<IDataLoader, DataLoader>()
+                             .AddScoped<A>()
+                             .AddTransient<B>()
                              .BuildServiceProvider();
       return provider;
     }

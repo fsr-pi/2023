@@ -35,10 +35,10 @@ namespace Barricades
       }
       set
       {
-        if (value < 1 || value > 5)
-        {
-          throw new ArgumentOutOfRangeException($"Invalid grade {value}. It shoud be from 1 to 5");
-        }
+        //if (value < 1 || value > 5)
+        //{
+        //  throw new ArgumentOutOfRangeException($"Invalid grade {value}. It shoud be from 1 to 5");
+        //}
 
         grades[name] = value;
       }

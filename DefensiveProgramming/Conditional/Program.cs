@@ -1,4 +1,4 @@
-﻿#define DEMO2
+﻿#define DEMO
 using System;
 using System.Diagnostics;
 
@@ -10,7 +10,7 @@ namespace Conditional
     {
       Console.WriteLine("Start");
 
-#if (DEMO)
+#if (DEMO45)
       Console.WriteLine("Print something...");
 #endif
 
@@ -19,7 +19,7 @@ namespace Conditional
       Console.WriteLine("End");
     }
 
-    [Conditional("DEMO")]
+    [Conditional("DEMO45")]
     static void CheckSomething()
     {
       Console.WriteLine("Print from CheckSomething method");
