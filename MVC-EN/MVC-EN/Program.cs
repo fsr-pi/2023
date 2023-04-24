@@ -38,3 +38,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 app.Run();
+
+// in order to test the app
+public partial class Program { }
