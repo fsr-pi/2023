@@ -25,7 +25,8 @@ public partial class Document
 
     public virtual ICollection<Document> InversePreviousDocument { get; } = new List<Document>();
 
-    public virtual ICollection<Item> Items { get; } = new List<Item>();
+  //set added because of GraphQL projections
+    public virtual ICollection<Item> Items { get; set; } = new List<Item>();
 
     public virtual Partner Partner { get; set; }
 
