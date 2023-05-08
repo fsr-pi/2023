@@ -2,8 +2,6 @@ using EFModel;
 using GraphQLServer.SetupGraphQL;
 using HotChocolate.Types.Pagination;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,9 +24,6 @@ builder.Services.AddGraphQLServer()
                 .AddSorting()
                 .AddQueryType<Queries>()
                 .AddMutationType<Mutations>();
-builder.Services
-       .AddControllers()
-       .AddJsonOptions(configure => configure.JsonSerializerOptions.PropertyNamingPolicy = null);
 #endregion
 
 var app = builder.Build();
